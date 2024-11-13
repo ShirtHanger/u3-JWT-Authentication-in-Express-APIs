@@ -3,6 +3,7 @@ dotenv.config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 /* Importing JWT, user, and profiles routes */
 const testJWTRouter = require('./controllers/test-jwt')
@@ -16,6 +17,7 @@ mongoose.connection.on('connected', () => {
 })
 
 app.use(express.json())
+app.use(cors())
 
 // Routes go here
 // router.get('/', (req, res) => {
